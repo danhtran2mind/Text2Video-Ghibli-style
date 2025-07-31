@@ -14,7 +14,7 @@ transformers==4.54.0
 decord==0.6.0
 safetensors==0.5.3
 omegaconf==2.3.0
-cv2==4.11.0
+opencv-python==4.11.0
 pydantic==2.11.7
 triton==3.2.0
 compel==2.1.1

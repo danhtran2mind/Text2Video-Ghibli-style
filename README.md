@@ -102,7 +102,7 @@ Run the following scripts to set up the project:
 python src/text2video_ghibli_style/train.py
 ```
 - Training Hyperparameters
-Refer to the [training notebook](docs/training/training_doc.md) for detailed hyperparameters used in fine-tuning the model. ⚙️
+Refer to the [Training Documents](docs/training/training_doc.md) for detailed hyperparameters used in fine-tuning the model. ⚙️
 
 ### Inference
 To generate videos using the trained model:
