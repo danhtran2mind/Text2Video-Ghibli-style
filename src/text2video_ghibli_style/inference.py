@@ -54,7 +54,7 @@ def run_inference(
         "--device", device,
         "--seed", str(seed),
         "--output_dir", output_dir,
-        "--no-prompt-name"
+        # "--no-prompt-name"
     ]
 
     # Use Popen to execute the command
