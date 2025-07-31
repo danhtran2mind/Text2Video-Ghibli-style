@@ -6,7 +6,7 @@ import uuid
 import torch
 
 # Append the current directory to sys.path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 def run_inference(
     model_path="./ckpts/zeroscope_v2_576w",
@@ -37,7 +37,7 @@ def run_inference(
             os.remove(os.path.join(output_dir, file_name))
 
     command = [
-        "python", "third_party/MotionDirector/main_inference.py",
+        "python", "src/third_party/MotionDirector/main_inference.py",
         "--model", model_path,
         "--checkpoint_folder", checkpoint_folder,
         "--prompt", prompt,

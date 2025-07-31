@@ -1,13 +1,16 @@
 import subprocess
 import os
+import sys
 import argparse
+
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'third_party', 'MotionDirector')))
 
 def run_training(config_path, pytorch_cuda_alloc_conf="expandable_segments:True"):
     # Set the environment variable
     os.environ["PYTORCH_CUDA_ALLOC_CONF"] = pytorch_cuda_alloc_conf
-    
+
     # Command to execute
-    command = ["python", "main_train.py", "--config", config_path]
+    command = ["python", "src/third_party/MotionDirector/main_train.py", "--config", config_path]
     
     try:
         # Run the command using subprocess.Popen
