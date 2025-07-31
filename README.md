@@ -64,24 +64,24 @@ To run the Gradio app locally (`localhost:7860`):
 python apps/gradio_app.py
 ```
 
-# Usage Guide
+## Usage Guide
 
-## Setup Instructions
+### Setup Instructions
 
-### Step 1: Clone the Repository
+#### Step 1: Clone the Repository
 Clone the project repository and navigate to the project directory:
 ```bash
 git clone https://github.com/danhtran2mind/Text2Video-Ghibli-style.git
 cd Text2Video-Ghibli-style
 ```
 
-### Step 2: Install Dependencies
+#### Step 2: Install Dependencies
 Install the required Python packages:
 ```bash
 pip install -r requirements/requirements.txt
 ```
 
-### Step 3: Configure the Environment
+#### Step 3: Configure the Environment
 Run the following scripts to set up the project:
 - **Install Third-Party Dependencies**  
   ```bash
@@ -96,13 +96,13 @@ Run the following scripts to set up the project:
   python scripts/process_dataset.py
   ```
 
-## Running the Project
-
 ### Training
-To train the model:
+- To train the model:
 ```bash
 python src/text2video_ghibli_style/train.py
 ```
+- Training Hyperparameters
+Refer to the [training notebook](docs/training/training_doc.md) for detailed hyperparameters used in fine-tuning the model. ⚙️
 
 ### Inference
 To generate videos using the trained model:
@@ -110,14 +110,12 @@ To generate videos using the trained model:
 python src/text2video_ghibli_style/inference.py
 ```
 
-## Training Hyperparameters
-Refer to the [training notebook](docs/training/training_doc.md) for detailed hyperparameters used in fine-tuning the model. ⚙️
 
 ## Inference Samples
 | Prompt | Video |
 |:--------:|:-------:|
-| A dog is running with Ghibli style | <video controls><source src="apps/assets/examples/zeroscope_v2_576w-Ghibli-LoRA/1/A_dog_is_running_with_Ghibli_style_42.mp4" width="640" height="360"> type="video/mp4"></video> |
-| A girl is walking with Ghibli style | <video controls><source src="assets/examples/zeroscope_v2_576w-Ghibli-LoRA/2/A_girl_is_walking_with_Ghibli_style_0.mp4" width="640" height="360"> type="video/mp4"></video> |
+| A dog is running with Ghibli style | <video controls><source src="https://github.com/danhtran2mind/Text2Video-Ghibli-style/raw/refs/heads/dev/assets/examples/zeroscope_v2_576w-Ghibli-LoRA/1/A_dog_is_running_with_Ghibli_style_42.mp4" width="640" height="360"> type="video/mp4"></video> |
+| A girl is walking with Ghibli style | <video controls><source src="https://github.com/danhtran2mind/Text2Video-Ghibli-style/raw/refs/heads/dev/assets/examples/zeroscope_v2_576w-Ghibli-LoRA/2/A_girl_is_walking_with_Ghibli_style_0.mp4" width="640" height="360"> type="video/mp4"></video> |
 | Studio Ghibli style. Young man contemplates, walks away from ivy-covered yellow building. | <video controls><source src="assets/examples/zeroscope_v2_576w-Ghibli-LoRA/3/Studio_Ghibli_style_Young_man_contemplates_walks_away_from_ivy-covered_yellow_building_12345.mp4" width="640" height="360"> type="video/mp4"></video> |
 | Studio Ghibli style. Two women walk down coastal village path toward sea, passing colorful houses, sailboats visible. | <video controls><source src="assets/examples/zeroscope_v2_576w-Ghibli-LoRA/4/Studio_Ghibli_style_Two_women_walk_down_coastal_village_path_toward_sea_passing_colorful_houses_sailboats_visible_100.mp4" width="640" height="360"> type="video/mp4"></video> |
 
@@ -133,6 +131,3 @@ For questions or issues, please use the [GitHub Issues tab](https://github.com/d
 This repository is trained from [![GitHub Repo](https://img.shields.io/badge/GitHub-danhtran2mind%2FMotionDirector-blue?style=flat)](https://github.com/danhtran2mind/MotionDirector), a fork of [![GitHub Repo](https://img.shields.io/badge/GitHub-showlab%2FMotionDirector-blue?style=flat)](https://github.com/showlab/MotionDirector), with numerous bug fixes and rewritten code for improved performance and stability. You can explore more model in HuggingFace Hub https://huggingface.co/cerspense.
 
 This repository is trained from [![GitHub Repo](https://img.shields.io/badge/GitHub-danhtran2mind%2FMotionDirector-blue?style=flat&logo=github)](https://github.com/danhtran2mind/MotionDirector), a fork of [![GitHub Repo](https://img.shields.io/badge/GitHub-showlab%2FMotionDirector-blue?style=flat&logo=github)](https://github.com/showlab/MotionDirector), with numerous bug fixes and rewritten code for improved performance and stability. Explore more models on [![HuggingFace Hub](https://img.shields.io/badge/HuggingFace-cerspense-yellow?style=flat&logo=huggingface)](https://huggingface.co/cerspense).
-
-
-
