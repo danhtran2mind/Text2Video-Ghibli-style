@@ -21,18 +21,19 @@ def run_inference(
     checkpoint_folder="./ckpts/zeroscope_v2_576w-Ghibli-LoRA",
     prompt="Studio Ghibli style. Two women walk down coastal village path toward sea, passing colorful houses, sailboats visible.",
     negative_prompt="ugly, noise, fragment, blur, static video",
-    width=512,
-    height=512,
-    num_frames=16,
-    num_steps=50,
+    width=256,
+    height=256,
+    num_frames=8,
+    num_steps=30,
     guidance_scale=30.0,
-    fps=16,
-    lora_rank=96,
+    fps=8,
+    lora_rank=32,
     lora_scale=0.7,
     noise_prior=0.1,
     device="cuda",
     seed=100
 ):
+    print("Start Inference")
     output_dir = "apps/gradio_app/temp_data"
     os.makedirs(output_dir, exist_ok=True)
 
@@ -72,21 +73,25 @@ def run_inference(
         for line in process.stdout:
             output_lines.append(line.strip())
     except Exception as e:
-        return None, f"Error reading output: {e}"
+        return None, f"Error reading output: {str(e)}"
 
-    # Wait for the process to complete and check for errors
-    process.wait()
+    # Capture stderr and wait for process to complete
+    stderr_output = process.communicate()[1]
     if process.returncode != 0:
-        error_message = process.stderr.read().strip()
-        return None, f"Error: {error_message}"
+        return None, f"Error: {stderr_output.strip()}"
 
     # Check for MP4 files in output directory
     output_file = [f for f in os.listdir(output_dir) if f.lower().endswith('.mp4')]
-    output_path = os.path.join(output_dir, output_file[0]) if output_file else "No MP4 files found."
-    return output_path, "\n".join(output_lines)
+    if output_file:
+        output_path = os.path.join(output_dir, output_file[0])
+        if os.path.exists(output_path):
+            return output_path, "\n".join(output_lines)
+        else:
+            return None, f"Video file not found at {output_path}\nLogs:\n" + "\n".join(output_lines)
+    return None, f"No MP4 files found in {output_dir}\nLogs:\n" + "\n".join(output_lines)
 
 if __name__ == "__main__":
     # Example usage
-    video, logs = run_inference(device="cpu" if not torch.cuda.is_available() else "cuda")
-    print(f"Generated Video: {video}")
+    video_path, logs = run_inference(device="cpu" if not torch.cuda.is_available() else "cuda")
+    print(f"Generated Video: {video_path}")
     print(f"Logs: {logs}")
