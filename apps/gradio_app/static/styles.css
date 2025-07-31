@@ -1,61 +1,123 @@
+/* General styling for a clean, professional look */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f4f8;
-    color: #333;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+    color: #2d3748;
+    margin: 0;
+    padding: 0;
 }
 
+/* Container for Gradio blocks */
+.gradio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Markdown header styling with Studio Ghibli-inspired colors */
 h1 {
-    color: #2c3e50;
+    color: #2a4365;
+    font-size: 2.5rem;
+    font-weight: 700;
     text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.gr-box {
-    background-color: #ffffff;
-    border-radius: 10px;
+/* Row and column layout */
+.gr-row {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.gr-column {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
+    transition: transform 0.3s ease;
 }
 
-.gr-textbox, .gr-slider, .gr-dropdown {
-    margin-bottom: 15px;
+.gr-column:hover {
+    transform: translateY(-5px);
 }
 
-.gr-textbox input, .gr-dropdown select {
-    border: 1px solid #dcdcdc;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 1em;
+/* Input components */
+input[type="text"], select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #2d3748;
+    background-color: #f7fafc;
+    transition: border-color 0.3s ease;
 }
 
-.gr-slider input[type=range] {
-    accent-color: #3498db;
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: #4c51bf;
+    box-shadow: 0 0 0 3px rgba(76, 81, 191, 0.2);
 }
 
+/* Slider styling */
+input[type="range"] {
+    width: 100%;
+    accent-color: #4c51bf;
+}
+
+/* Button styling */
 .generate-btn {
-    background-color: #3498db;
-    color: white;
+    background: #4c51bf;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
     border: none;
-    padding: 12px 24px;
-    border-radius: 5px;
-    font-size: 1.1em;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .generate-btn:hover {
-    background-color: #2980b9;
+    background: #434190;
+    transform: scale(1.05);
 }
 
-.gr-video {
-    border-radius: 10px;
-    overflow: hidden;
+.generate-btn:active {
+    transform: scale(0.95);
 }
 
-.gr-textbox[lines] {
-    border: 1px solid #dcdcdc;
-    border-radius: 5px;
-    padding: 10px;
+/* Video output */
+video {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+/* Log output */
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background-color: #f7fafc;
+    resize: vertical;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .gr-row {
+        flex-direction: column;
+    }
+
+    .gr-column {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
 }

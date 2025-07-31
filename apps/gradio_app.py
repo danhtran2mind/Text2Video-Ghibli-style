@@ -1,11 +1,14 @@
+import os
 import gradio as gr
 from gradio_app.inference import run_inference, run_setup_script
 
 def create_app():
     # Run setup script at startup
     setup_output = run_setup_script()
+    CSS = open("apps/gradio_app/static/styles.css", "r").read() if "gradio_app.css" in os.listdir() else ""
     
-    with gr.Blocks(css="static/styles.css", js="static/scripts.js") as app:
+    with gr.Blocks(css=CSS) as app:
+        gr.HTML('<script src="file=apps/gradio_app/static/scripts.js"></script>')
         gr.Markdown(
             """
             # MotionDirector Video Generation
@@ -52,4 +55,4 @@ def create_app():
 
 if __name__ == "__main__":
     app = create_app()
-    app.launch()
+    app.launch(share=True)
