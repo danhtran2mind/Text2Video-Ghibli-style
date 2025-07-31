@@ -13,7 +13,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Introduction
-Transform text into captivating videos with the enchanting aesthetic of Studio Ghibli. This project leverages a fine-tuned Stable Diffusion 2.1 model to generate high-quality, Ghibli-inspired video content from text prompts. Built upon the foundation of [MotionDirector](https://github.com/showlab/MotionDirector), it includes optimized code and enhanced stability for seamless performance. 🌟
+Transform text into captivating videos with the enchanting aesthetic of Studio Ghibli. This project leverages a fine-tuned `zeroscope_v2_576w` model to generate high-quality, Ghibli-inspired video content from text prompts. Built upon the foundation of [MotionDirector](https://github.com/showlab/MotionDirector), it includes optimized code and enhanced stability for seamless performance. 🌟
 
 ## Key Features
 - 🎨 Generate videos in the iconic Studio Ghibli art style
@@ -24,7 +24,8 @@ Transform text into captivating videos with the enchanting aesthetic of Studio G
 
 ## Notebook
 Explore the project with our comprehensive notebook: 
-- Training Notebook:
+### Training Notebook:
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/danhtran2mind/Text2Video-Ghibli-style/blob/main/notebooks/zeroscope_v2_576w_Ghibli_LoRA-Training.ipynb)
 [![Open in SageMaker](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/danhtran2mind/Text2Video-Ghibli-style/blob/main/notebooks/zeroscope_v2_576w_Ghibli_LoRA-Training.ipynb)
 [![Open in Deepnote](https://deepnote.com/buttons/launch-in-deepnote-small.svg)](https://deepnote.com/launch?url=https://github.com/danhtran2mind/Text2Video-Ghibli-style/blob/main/notebooks/zeroscope_v2_576w_Ghibli_LoRA-Training.ipynb)
@@ -34,7 +35,8 @@ Explore the project with our comprehensive notebook:
 [![View on GitHub](https://img.shields.io/badge/View%20on-GitHub-181717?logo=github)](https://github.com/danhtran2mind/Text2Video-Ghibli-style/blob/main/notebooks/zeroscope_v2_576w_Ghibli_LoRA-Training.ipynb)
 [![Open In Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://www.kaggle.com/notebooks/welcome?src=https%3A%2F%2Fgithub.com%2Fdanhtran2mind/Text2Video-Ghibli-style/blob/main/notebooks/zeroscope_v2_576w_Ghibli_LoRA-Training.ipynb)
 
-- Inference Notebook:
+### Inference Notebook:
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/danhtran2mind/Text2Video-Ghibli-style/blob/main/notebooks/zeroscope_v2_576w_Ghibli_LoRA-Inference.ipynb)
 [![Open in SageMaker](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/danhtran2mind/Text2Video-Ghibli-style/blob/main/notebooks/zeroscope_v2_576w_Ghibli_LoRA-Inference.ipynb)
 [![Open in Deepnote](https://deepnote.com/buttons/launch-in-deepnote-small.svg)](https://deepnote.com/launch?url=https://github.com/danhtran2mind/Text2Video-Ghibli-style/blob/main/notebooks/zeroscope_v2_576w_Ghibli_LoRA-Inference.ipynb)
@@ -44,15 +46,17 @@ Explore the project with our comprehensive notebook:
 [![View on GitHub](https://img.shields.io/badge/View%20on-GitHub-181717?logo=github)](https://github.com/danhtran2mind/Text2Video-Ghibli-style/blob/main/notebooks/zeroscope_v2_576w_Ghibli_LoRA-Inference.ipynb)
 [![Open In Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://www.kaggle.com/notebooks/welcome?src=https%3A%2F%2Fgithub.com%2Fdanhtran2mind/Text2Video-Ghibli-style/blob/main/notebooks/zeroscope_v2_576w_Ghibli_LoRA-Inference.ipynb)
 
+
 ## Dataset
 The model is trained on a curated dataset inspired by Studio Ghibli's visual style, ensuring authentic and high-quality video outputs. Details are available in the [dataset processing script](scripts/process_dataset.py). 📊
 
 ## Base Model
-This project builds upon the Stable Diffusion 2.1 model, fine-tuned with LoRA for Ghibli-style video generation, forked from [MotionDirector](https://github.com/showlab/MotionDirector). 🚀
+This project builds upon the `zeroscope_v2_576w` model, fine-tuned with LoRA for Ghibli-style video generation, forked from [MotionDirector](https://github.com/showlab/MotionDirector). 🚀
 
 ## Demonstration
 Experience the magic of Ghibli-style video generation:  
-- **Hugging Face Space**: [Interactive Demo](https://huggingface.co/spaces/danhtran2mind/Text2Video-Ghibli-style) 🌍  
+- **HuggingFace Space**: [![HuggingFace Space Demo](https://img.shields.io/badge/HuggingFace-danhtran2mind%2FText2Video--Ghibli--style-yellow?style=flat&logo=huggingface)](https://huggingface.co/spaces/danhtran2mind/Text2Video-Ghibli-style)
+
 - **Demo GUI**:  
   <img src="./assets/gradio_app_demo.jpg" alt="Gradio Demo" height="600">
 
@@ -61,53 +65,59 @@ To run the Gradio app locally (`localhost:7860`):
 python apps/gradio_app.py
 ```
 
-## Installation
-### Step 1: Clone the Repository
+## Usage Guide
+
+### Setup Instructions
+
+#### Step 1: Clone the Repository
+Clone the project repository and navigate to the project directory:
 ```bash
-git clone https://github.com/danhtran2mind/Text2Video-Ghibli-style
+git clone https://github.com/danhtran2mind/Text2Video-Ghibli-style.git
 cd Text2Video-Ghibli-style
 ```
 
-### Step 2: Install Dependencies
+#### Step 2: Install Dependencies
+Install the required Python packages:
 ```bash
 pip install -r requirements/requirements.txt
 ```
-### Download and Setup Third-party
-```bash
-python scripts/setup_third_party.py
-```
-### Download Model Checkpoints
-```bash
-python scripts/download_ckpts.py
-```
-### Download Dataset (used in Training)
-```bash
-python scripts/process_dataset.py
-```
 
-## Usage
-- **Training**:  
+#### Step 3: Configure the Environment
+Run the following scripts to set up the project:
+- **Install Third-Party Dependencies**  
   ```bash
-  python src/text2video_ghibli_style/train.py
+  python scripts/setup_third_party.py
   ```
-- **Inference**:  
+- **Download Model Checkpoints**  
   ```bash
-  python src/text2video_ghibli_style/inference.py
+  python scripts/download_ckpts.py
+  ```
+- **Prepare Dataset (Optional, for Training)**  
+  ```bash
+  python scripts/process_dataset.py
   ```
 
-## Training Hyperparameters
-Refer to the [training notebook](docs/training/training_doc.md) for detailed hyperparameters used in fine-tuning the model. ⚙️
+### Training
+- To train the model:
+```bash
+python src/text2video_ghibli_style/train.py
+```
+- Training Hyperparameters
+Refer to the [Training Documents](docs/training/training_doc.md) for detailed hyperparameters used in fine-tuning the model. ⚙️
+
+### Inference
+To generate videos using the trained model:
+```bash
+python src/text2video_ghibli_style/inference.py
+```
 
 ## Inference Samples
-|Prompt|Video|
-
-|A dog is running with Ghibli style|apps\assets\examples\zeroscope_v2_576w-Ghibli-LoRA\1\A_dog_is_running_with_Ghibli_style_42.mp4|
-|A girl is walking with Ghibli style|
-|assets\examples\zeroscope_v2_576w-Ghibli-LoRA\2\A_girl_is_walking_with_Ghibli_style_0.mp4|
-|Studio Ghibli style. Young man contemplates, walks away from ivy-covered yellow building.|
-|assets\examples\zeroscope_v2_576w-Ghibli-LoRA\3\Studio_Ghibli_style_Young_man_contemplates_walks_away_from_ivy-covered_yellow_building_12345.mp4|
-|Studio Ghibli style. Two women walk down coastal village path toward sea, passing colorful houses, sailboats visible.|
-assets\examples\zeroscope_v2_576w-Ghibli-LoRA\4\Studio_Ghibli_style_Two_women_walk_down_coastal_village_path_toward_sea_passing_colorful_houses_sailboats_visible_100.mp4|
+| Prompt | Video |
+|:--------:|:-------:|
+| A dog is running with Ghibli style |![Example 1 gif](assets/examples/zeroscope_v2_576w-Ghibli-LoRA/1/A_dog_is_running_with_Ghibli_style_42.gif) |
+| A girl is walking with Ghibli style | ![Example 2 gif](assets/examples/zeroscope_v2_576w-Ghibli-LoRA/2/A_girl_is_walking_with_Ghibli_style_0.gif) |
+| Studio Ghibli style. Young man contemplates, walks away from ivy-covered yellow building. | ![Example 3 gif](assets/examples/zeroscope_v2_576w-Ghibli-LoRA/3/Studio_Ghibli_style_Young_man_contemplates_walks_away_from_ivy-covered_yellow_building_12345.gif) |
+| Studio Ghibli style. Two women walk down coastal village path toward sea, passing colorful houses, sailboats visible. | ![Example 4 gif](assets/examples/zeroscope_v2_576w-Ghibli-LoRA/4/Studio_Ghibli_style_Two_women_walk_down_coastal_village_path_toward_sea_passing_colorful_houses_sailboats_visible_100.gif) |
 
 ## Environment
 - **Python**: 3.10 or higher
@@ -118,4 +128,4 @@ For questions or issues, please use the [GitHub Issues tab](https://github.com/d
 
 ## Project Description
 
-This repository is trained from [![GitHub Repo](https://img.shields.io/badge/GitHub-danhtran2mind%2FMotionDirector-blue?style=flat)](https://github.com/danhtran2mind/MotionDirector), a fork of [![GitHub Repo](https://img.shields.io/badge/GitHub-showlab%2FMotionDirector-blue?style=flat)](https://github.com/showlab/MotionDirector), with numerous bug fixes and rewritten code for improved performance and stability. You can explore more model in HuggingFace Hub https://huggingface.co/cerspense.
+This repository is trained from [![GitHub Repo](https://img.shields.io/badge/GitHub-danhtran2mind%2FMotionDirector-blue?style=flat&logo=github)](https://github.com/danhtran2mind/MotionDirector), a fork of [![GitHub Repo](https://img.shields.io/badge/GitHub-showlab%2FMotionDirector-blue?style=flat&logo=github)](https://github.com/showlab/MotionDirector), with numerous bug fixes and rewritten code for improved performance and stability. You can download the `zeroscope_v2_576w` model from the [![HuggingFace: cerspense/zeroscope_v2_576w](https://img.shields.io/badge/HuggingFace-cerspense%2Fzeroscope__v2__576w-yellow?logo=huggingface)](https://huggingface.co/cerspense/zeroscope_v2_576w). Explore more models on [![HuggingFace Hub](https://img.shields.io/badge/HuggingFace-cerspense-yellow?style=flat&logo=huggingface)](https://huggingface.co/cerspense).
