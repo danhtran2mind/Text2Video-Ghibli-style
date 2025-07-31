@@ -1,0 +1,15 @@
+{
+    "prompt": "Studio Ghibli style. Two women walk down coastal village path toward sea, passing colorful houses, sailboats visible.",
+    "negative-prompt": "ugly, noise, fragment, blur, static video",
+    "height": 512,
+    "width": 512,
+    "num-frames": 16,
+    "num-steps": 50,
+    "guidance_scale": 30,
+    "fps": 16,
+    "lora_rank": 96,
+    "lora_scale": 0.7,
+    "noise_prior": 0.1,
+    "seed": 100,
+    "video": "Studio_Ghibli_style_Two_women_walk_down_coastal_village_path_toward_sea_passing_colorful_houses_sailboats_visible_100.mp4"
+}

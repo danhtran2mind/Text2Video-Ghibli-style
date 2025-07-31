@@ -1,0 +1,15 @@
+{
+    "prompt": "A girl is walking with Ghibli style",
+    "negative-prompt": "ugly, noise, fragment, blur, static video",
+    "height": 384,
+    "width": 384,
+    "num-frames": 28,
+    "num-steps": 50,
+    "guidance_scale": 15,
+    "fps": 16,
+    "lora_rank": 128,
+    "lora_scale": 0.8,
+    "noise_prior": 0.3,
+    "seed": 0,
+    "video": "A_girl_is_walking_with_Ghibli_style_0.mp4"
+}

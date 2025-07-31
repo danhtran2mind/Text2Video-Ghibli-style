@@ -4,7 +4,7 @@
     "height": 512,
     "width": 512,
     "num-frames": 16,
-    "num-steps": 50
+    "num-steps": 50,
     "guidance_scale": 30,
     "fps": 16,
     "lora_rank": 96,
