@@ -8,14 +8,6 @@ import torch
 # Append the current directory to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-def run_setup_script():
-    setup_script = os.path.join(os.path.dirname(__file__), "setup_scripts.py")
-    try:
-        result = subprocess.run(["python", setup_script], capture_output=True, text=True, check=True)
-        return result.stdout
-    except subprocess.CalledProcessError as e:
-        return f"Setup script failed: {e.stderr}"
-
 def run_inference(
     model_path="./ckpts/zeroscope_v2_576w",
     checkpoint_folder="./ckpts/zeroscope_v2_576w-Ghibli-LoRA",
@@ -30,7 +22,7 @@ def run_inference(
     lora_rank=32,
     lora_scale=0.7,
     noise_prior=0.1,
-    # device="cuda",
+    device="cuda",
     seed=100
 ):
     print("Start Inference")
@@ -43,9 +35,9 @@ def run_inference(
         if file_name.endswith(".mp4"):
             # Remove the file
             os.remove(os.path.join(output_dir, file_name))
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
     command = [
-        "python", "src/third_party/MotionDirector/main_inference.py",
+        "python", "third_party/MotionDirector/main_inference.py",
         "--model", model_path,
         "--checkpoint_folder", checkpoint_folder,
         "--prompt", prompt,
@@ -99,6 +91,6 @@ def run_inference(
 
 if __name__ == "__main__":
     # Example usage
-    video_path, logs = run_inference()
-    print(f"Generated Video: {video_path}")    
+    video_path, logs = run_inference(device="cpu" if not torch.cuda.is_available() else "cuda")
+    print(f"Generated Video: {video_path}")
     print(f"Logs: {logs}")
