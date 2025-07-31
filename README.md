@@ -55,7 +55,7 @@ This project builds upon the `zeroscope_v2_576w` model, fine-tuned with LoRA for
 
 ## Demonstration
 Experience the magic of Ghibli-style video generation:  
-- **HuggingFace Space**: [![HuggingFace Space Demo](https://img.shields.io/badge/HuggingFace-danhtran2mind%2FText2Video--Ghibli--style-yellow?style=flat&logo=huggingface)](https://huggingface.co/cerspense)
+- **HuggingFace Space**: [![HuggingFace Space Demo](https://img.shields.io/badge/HuggingFace-danhtran2mind%2FText2Video--Ghibli--style-yellow?style=flat&logo=huggingface)](https://huggingface.co/spaces/danhtran2mind/Text2Video-Ghibli-style)
 
 - **Demo GUI**:  
   <img src="./assets/gradio_app_demo.jpg" alt="Gradio Demo" height="600">
