@@ -110,14 +110,13 @@ To generate videos using the trained model:
 python src/text2video_ghibli_style/inference.py
 ```
 
-
 ## Inference Samples
 | Prompt | Video |
 |:--------:|:-------:|
-| A dog is running with Ghibli style | <video controls><source src="https://github.com/danhtran2mind/Text2Video-Ghibli-style/raw/refs/heads/dev/assets/examples/zeroscope_v2_576w-Ghibli-LoRA/1/A_dog_is_running_with_Ghibli_style_42.mp4" width="640" height="360"> type="video/mp4"></video> |
-| A girl is walking with Ghibli style | <video controls><source src="https://github.com/danhtran2mind/Text2Video-Ghibli-style/raw/refs/heads/dev/assets/examples/zeroscope_v2_576w-Ghibli-LoRA/2/A_girl_is_walking_with_Ghibli_style_0.mp4" width="640" height="360"> type="video/mp4"></video> |
-| Studio Ghibli style. Young man contemplates, walks away from ivy-covered yellow building. | <video controls><source src="assets/examples/zeroscope_v2_576w-Ghibli-LoRA/3/Studio_Ghibli_style_Young_man_contemplates_walks_away_from_ivy-covered_yellow_building_12345.mp4" width="640" height="360"> type="video/mp4"></video> |
-| Studio Ghibli style. Two women walk down coastal village path toward sea, passing colorful houses, sailboats visible. | <video controls><source src="assets/examples/zeroscope_v2_576w-Ghibli-LoRA/4/Studio_Ghibli_style_Two_women_walk_down_coastal_village_path_toward_sea_passing_colorful_houses_sailboats_visible_100.mp4" width="640" height="360"> type="video/mp4"></video> |
+| A dog is running with Ghibli style |![Example 1 gif](assets/examples/zeroscope_v2_576w-Ghibli-LoRA/1/A_dog_is_running_with_Ghibli_style_42.gif) |
+| A girl is walking with Ghibli style | ![Example 2 gif](assets/examples/zeroscope_v2_576w-Ghibli-LoRA/2/A_girl_is_walking_with_Ghibli_style_0.gif) |
+| Studio Ghibli style. Young man contemplates, walks away from ivy-covered yellow building. | ![Example 3 gif](assets/examples/zeroscope_v2_576w-Ghibli-LoRA/3/Studio_Ghibli_style_Young_man_contemplates_walks_away_from_ivy-covered_yellow_building_12345.gif) |
+| Studio Ghibli style. Two women walk down coastal village path toward sea, passing colorful houses, sailboats visible. | ![Example 4 gif](assets/examples/zeroscope_v2_576w-Ghibli-LoRA/4/Studio_Ghibli_style_Two_women_walk_down_coastal_village_path_toward_sea_passing_colorful_houses_sailboats_visible_100.gif) |
 
 ## Environment
 - **Python**: 3.10 or higher
