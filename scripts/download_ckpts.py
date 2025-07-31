@@ -23,11 +23,7 @@ def download_checkpoint(repo_id, save_path, repo_type="model"):
     snapshot_download(repo_id=repo_id, repo_type=repo_type, local_dir=save_path)
     print(f"Successfully downloaded {repo_id}")
 
-def main(args):
-    # Define device
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"Using device: {device}")
-    
+def main(args):    
     # Define checkpoint configurations
     checkpoints = [
         {
@@ -36,6 +32,14 @@ def main(args):
             "repo_type": args.repo_type
         }
     ]
+    
+    # Add LoRA checkpoint if provided
+    if args.lora_repo_id and args.lora_save_path:
+        checkpoints.append({
+            "repo_id": args.lora_repo_id,
+            "save_path": args.lora_save_path,
+            "repo_type": args.lora_repo_type
+        })
     
     # Download each checkpoint
     for checkpoint in checkpoints:
@@ -47,7 +51,7 @@ def main(args):
 
 if __name__ == "__main__":
     # Set up argument parser
-    parser = argparse.ArgumentParser(description="Download a model checkpoint from Hugging Face Hub")
+    parser = argparse.ArgumentParser(description="Download model checkpoints from Hugging Face Hub")
     parser.add_argument(
         "--repo_id",
         type=str,
@@ -65,6 +69,24 @@ if __name__ == "__main__":
         type=str,
         default="model",
         help="Type of repository (e.g., model, dataset)"
+    )
+    parser.add_argument(
+        "--lora_repo_id",
+        type=str,
+        default="danhtran2mind/zeroscope_v2_576w-Ghibli-LoRA",
+        help="Hugging Face repository ID for the LoRA checkpoint"
+    )
+    parser.add_argument(
+        "--lora_save_path",
+        type=str,
+        default="./ckpts/zeroscope_v2_576w-Ghibli-LoRA",
+        help="Local directory to save the LoRA checkpoint"
+    )
+    parser.add_argument(
+        "--lora_repo_type",
+        type=str,
+        default="model",
+        help="Type of repository for the LoRA checkpoint (e.g., model, dataset)"
     )
     
     # Parse arguments

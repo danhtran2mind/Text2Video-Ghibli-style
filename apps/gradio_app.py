@@ -1,5 +1,5 @@
 import gradio as gr
-from apps.gradio_app.inference import run_inference, run_setup_script
+from gradio_app.inference import run_inference, run_setup_script
 
 def create_app():
     # Run setup script at startup

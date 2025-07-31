@@ -1,5 +1,5 @@
-import sys
 import os
+import sys
 import subprocess
 from pathlib import Path
 import uuid
@@ -57,34 +57,15 @@ def run_inference(
         "--no-prompt-name"
     ]
 
-    # Use Popen to execute the command
-    process = subprocess.Popen(
-        command,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True,
-        bufsize=1  # Line buffering
-    )
-
-    # Read output line-by-line in real-time
-    output_lines = []
-    try:
-        for line in process.stdout:
-            output_lines.append(line.strip())
-    except Exception as e:
-        return None, f"Error reading output: {e}"
-
-    # Wait for the process to complete and check for errors
-    process.wait()
-    if process.returncode != 0:
-        error_message = process.stderr.read().strip()
-        return None, f"Error: {error_message}"
-
-    # Check for MP4 files in output directory
     output_file = [f for f in os.listdir(output_dir) if f.lower().endswith('.mp4')]
-    output_path = os.path.join(output_dir, output_file[0]) if output_file else "No MP4 files found."
-    return output_path, "\n".join(output_lines)
+    print(os.path.join(output_dir, output_file[0]) if output_file else "No MP4 files found.")
 
+    try:
+        result = subprocess.run(command, capture_output=True, text=True, check=True)
+        return str(output_file), result.stdout
+    except subprocess.CalledProcessError as e:
+        return None, f"Error: {e.stderr}"
+    
 if __name__ == "__main__":
     # Example usage
     video, logs = run_inference(device="cpu" if not torch.cuda.is_available() else "cuda")
