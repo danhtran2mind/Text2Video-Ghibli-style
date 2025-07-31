@@ -1,5 +1,6 @@
 import os
 import gradio as gr
+import json
 from gradio_app.inference import run_inference, run_setup_script
 
 def create_app():
@@ -64,6 +65,57 @@ def create_app():
                         lora_scale = gr.Slider(label="LoRA Scale", minimum=0.1, maximum=1.0, step=0.1, value=0.7)
                         noise_prior = gr.Slider(label="Noise Prior", minimum=0.0, maximum=1.0, step=0.01, value=0.1)
 
+        # Example Buttons Section
+        gr.Markdown("## Example Configurations")
+        example_base_path = "apps/assets/examples/zeroscope_v2_576w-Ghibli-LoRA"
+        example_buttons = []
+        configs = []
+
+        for i in range(1, 5):
+            example_dir = os.path.join(example_base_path, str(i))
+            config_path = os.path.join(example_dir, "config.json")
+            if os.path.exists(config_path):
+                with open(config_path, "r") as f:
+                    config = json.load(f)
+                video_path = os.path.join(example_dir, config["video"])
+                if os.path.exists(video_path):
+                    configs.append((config, video_path))
+                    example_buttons.append(gr.Button(f"Load Example {i}"))
+
+        def create_example_fn(config, video_path):
+            def load_example():
+                return [
+                    "./ckpts/zeroscope_v2_576w",  # model_path
+                    "./ckpts/zeroscope_v2_576w-Ghibli-LoRA",  # checkpoint_folder
+                    config.get("prompt", ""),
+                    config.get("negative-prompt", ""),
+                    config.get("width", 512),
+                    config.get("height", 512),
+                    config.get("num-frames", 16),
+                    config.get("num-steps", 50),
+                    config.get("guidance_scale", 30.0),
+                    config.get("fps", 16),
+                    config.get("lora_rank", 96),
+                    config.get("lora_scale", 0.7),
+                    config.get("noise_prior", 0.1),
+                    config.get("seed", 100),
+                    video_path,  # video_output
+                    f"Loaded example with prompt: {config.get('prompt', '')}"  # log_output
+                ]
+            return load_example
+
+        for btn, (config, video_path) in zip(example_buttons, configs):
+            btn.click(
+                fn=create_example_fn(config, video_path),
+                inputs=[],
+                outputs=[
+                    model_path, checkpoint_folder, prompt, negative_prompt,
+                    width, height, num_frames, num_steps, guidance_scale,
+                    fps, lora_rank, lora_scale, noise_prior, seed,
+                    video_output, log_output
+                ]
+            )
+
         generate_btn.click(
             fn=run_inference,
             inputs=[
@@ -72,32 +124,6 @@ def create_app():
                 fps, lora_rank, lora_scale, noise_prior, seed
             ],
             outputs=[video_output, log_output]
-        )
-
-        # Example Videos Section
-        gr.Markdown("## Example Videos")
-        examples = []
-        example_base_path = "apps/assets/examples/zeroscope_v2_576w-Ghibli-LoRA"
-        for i in range(1, 5):
-            example_dir = os.path.join(example_base_path, str(i))
-            config_path = os.path.join(example_dir, "config.json")
-            if os.path.exists(config_path):
-                with open(config_path, "r") as f:
-                    import json
-                    config = json.load(f)
-                video_path = os.path.join(example_dir, config["video"])
-                if os.path.exists(video_path):
-                    caption = f"Prompt: {config['prompt']}\n"
-                    caption += f"Settings: {json.dumps({k: v for k, v in config.items() if k != 'video' and k != 'prompt'}, indent=2)}"
-                    examples.append((video_path, caption))
-
-        gr.Gallery(
-            value=examples,
-            label="Example Outputs",
-            columns=2,
-            height="auto",
-            allow_preview=True,
-            object_fit="contain"
         )
 
         gr.Markdown("""
