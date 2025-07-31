@@ -1,0 +1,61 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.gr-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.gr-textbox, .gr-slider, .gr-dropdown {
+    margin-bottom: 15px;
+}
+
+.gr-textbox input, .gr-dropdown select {
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1em;
+}
+
+.gr-slider input[type=range] {
+    accent-color: #3498db;
+}
+
+.generate-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.generate-btn:hover {
+    background-color: #2980b9;
+}
+
+.gr-video {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.gr-textbox[lines] {
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 10px;
+}

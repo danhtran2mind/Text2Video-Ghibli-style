@@ -6,3 +6,23 @@
 ## Project Description
 
 This repository is trained from [![GitHub Repo](https://img.shields.io/badge/GitHub-danhtran2mind%2FMotionDirector-blue?style=flat)](https://github.com/danhtran2mind/MotionDirector), a fork of [![GitHub Repo](https://img.shields.io/badge/GitHub-showlab%2FMotionDirector-blue?style=flat)](https://github.com/showlab/MotionDirector), with numerous bug fixes and rewritten code for improved performance and stability.
+
+
+## Installation
+
+```bash
+pip install -r requirements/requirements.txt
+```
+
+```bash
+python scripts/setup_third_party.py
+```
+
+```bash
+python scripts/download_ckpts.py
+```
+
+```bash
+python scripts/process_dataset.py
+```
+
