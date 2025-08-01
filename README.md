@@ -1,4 +1,4 @@
-# Text to Video Ghibli style (EText2Video-Ghibli-style)
+# Text to Video Ghibli style (Text2Video-Ghibli-style)
 
 [![GitHub Stars](https://img.shields.io/github/stars/danhtran2mind/Text2Video-Ghibli-style?style=social&label=Repo%20Stars)](https://github.com/danhtran2mind/Text2Video-Ghibli-style/stargazers)
 ![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Fgithub.com%2Fdanhtran2mind%2FText2Video-Ghibli-style&label=Repo+Views&icon=github&color=%236f42c1&message=&style=social&tz=UTC)
@@ -48,6 +48,8 @@ Explore the project with our comprehensive notebook:
 
 
 ## Dataset
+You can explore more in this HuggingFace Dataset available at the given link for further details: [![HuggingFace Dataset](https://img.shields.io/badge/HuggingFace-raymondt%2Fghibi__t2v-yellow?style=flat&logo=huggingface)](https://huggingface.co/datasets/raymondt/ghibi_t2v).
+
 The model is trained on a curated dataset inspired by Studio Ghibli's visual style, ensuring authentic and high-quality video outputs. Details are available in the [dataset processing script](scripts/process_dataset.py). 📊
 
 ## Base Model
