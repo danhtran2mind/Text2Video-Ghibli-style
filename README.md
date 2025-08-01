@@ -48,6 +48,8 @@ Explore the project with our comprehensive notebook:
 
 
 ## Dataset
+You can explore more in this HuggingFace Dataset available at the given link for further details: [![HuggingFace Dataset](https://img.shields.io/badge/HuggingFace-raymondt%2Fghibi__t2v-yellow?style=flat&logo=huggingface)](https://huggingface.co/datasets/raymondt/ghibi_t2v).
+
 The model is trained on a curated dataset inspired by Studio Ghibli's visual style, ensuring authentic and high-quality video outputs. Details are available in the [dataset processing script](scripts/process_dataset.py). 📊
 
 ## Base Model
