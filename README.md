@@ -1,4 +1,4 @@
-# Text to Video Ghibli style 🎞 (Text2Video-Ghibli-style)
+# Text to Video Ghibli style 🎞️ (Text2Video-Ghibli-style)
 
 [![GitHub Stars](https://img.shields.io/github/stars/danhtran2mind/Text2Video-Ghibli-style?style=social&label=Repo%20Stars)](https://github.com/danhtran2mind/Text2Video-Ghibli-style/stargazers)
 ![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Fgithub.com%2Fdanhtran2mind%2FText2Video-Ghibli-style&label=Repo+Views&icon=github&color=%236f42c1&message=&style=social&tz=UTC)
