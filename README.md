@@ -67,7 +67,7 @@ To run the Gradio app locally (`localhost:7860`):
 python apps/gradio_app.py
 ```
 
-## Usage Guide
+## Getting Started
 
 ### Setup Instructions
 
@@ -98,7 +98,7 @@ Run the following scripts to set up the project:
   ```bash
   python scripts/process_dataset.py
   ```
-
+## Usage
 ### Training
 - To train the model:
 ```bash
